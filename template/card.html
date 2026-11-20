@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+  Means TV creator alert card. Rendered to a PNG (494px wide at 2x) by render.py,
+  then served from GitHub Pages at https://max-means.github.io/means-tv-alert-cards/cards/<slug>.png
+  Placeholders: {{CREATOR}} {{TITLE}} {{THUMB}} {{DATE}}
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fcfbf6; }
+  body { width: 494px; padding: 0 30px; }
+  .card { width: 434px; padding: 6px 0 4px; }
+  .thumb {
+    position: relative; width: 434px; height: 244px;
+    border-radius: 14px; overflow: hidden; background: #1e1e1e;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pill {
+    position: absolute; top: 12px; left: 12px;
+    background: #FF3269; color: #fcfbf6;
+    font: 700 11px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 7px 10px; border-radius: 6px;
+  }
+  .play {
+    position: absolute; right: 14px; bottom: 14px;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: rgba(30,30,30,.72);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play:after {
+    content: ""; margin-left: 4px;
+    border-style: solid; border-width: 9px 0 9px 15px;
+    border-color: transparent transparent transparent #fcfbf6;
+  }
+  .meta {
+    margin-top: 16px;
+    font: 700 12px/1.3 'Courier New', Courier, monospace;
+    letter-spacing: 2px; text-transform: uppercase; color: #FF3269;
+  }
+  .meta span { color: #1e1e1e; opacity: .55; }
+  .title {
+    margin-top: 8px;
+    font: 700 26px/1.18 Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1e1e1e;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="thumb">
+      <img src="{{THUMB}}" alt="">
+      <div class="pill">New video</div>
+      <div class="play"></div>
+    </div>
+    <div class="meta">{{CREATOR}} <span>&middot; {{DATE}}</span></div>
+    <div class="title">{{TITLE}}</div>
+  </div>
+</body>
+</html>
