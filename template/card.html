@@ -2,7 +2,7 @@
 <!--
   Means TV creator alert card. Rendered to a PNG (494px wide at 2x) by render.py,
   then served from GitHub Pages at https://max-means.github.io/means-tv-alert-cards/cards/<slug>.png
-  Placeholders: {{CREATOR}} {{TITLE}} {{THUMB}} {{DATE}}
+  Placeholders: {{CREATOR}} {{TITLE}} {{THUMB}}
 -->
 <html>
 <head>
@@ -22,31 +22,18 @@
        135deg pink gradient, white Helvetica Neue 500, fully rounded, top-left.
        Slightly see-through so the thumbnail shows behind it. */
     position: absolute; top: 10px; left: 10px;
-    display: inline-flex; align-items: center;
-    height: 24px; padding: 0 0.6em 0.06em;
+    height: 24px; padding: 0 10px;
     border-radius: 999px;
     background: linear-gradient(135deg, rgba(255,49,98,.88) 0%, rgba(238,84,154,.88) 100%);
     color: #ffffff;
-    font: 500 13px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    white-space: nowrap;
-  }
-  .play {
-    position: absolute; right: 14px; bottom: 14px;
-    width: 46px; height: 46px; border-radius: 50%;
-    background: rgba(30,30,30,.72);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .play:after {
-    content: ""; margin-left: 4px;
-    border-style: solid; border-width: 9px 0 9px 15px;
-    border-color: transparent transparent transparent #fcfbf6;
+    font: 500 13px/24px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center; white-space: nowrap;
   }
   .meta {
     margin-top: 16px;
     font: 700 12px/1.3 'Courier New', Courier, monospace;
     letter-spacing: 2px; text-transform: uppercase; color: #FF3269;
   }
-  .meta span { color: #1e1e1e; opacity: .55; }
   .title {
     margin-top: 8px;
     font: 700 26px/1.18 Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -59,10 +46,9 @@
   <div class="card">
     <div class="thumb">
       <img src="{{THUMB}}" alt="">
-      <div class="pill">New</div>
-      <div class="play"></div>
+      <div class="pill"><span style="position:relative;top:1.25px;">New</span></div>
     </div>
-    <div class="meta">{{CREATOR}} <span>&middot; {{DATE}}</span></div>
+    <div class="meta">{{CREATOR}}</div>
     <div class="title">{{TITLE}}</div>
   </div>
 </body>

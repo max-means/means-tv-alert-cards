@@ -3,7 +3,6 @@
     python render.py --slug hakim --creator "Hakim" \
         --title "Christopher Hitchens was a terrible human being" \
         --thumb https://alpha.uscreencdn.com/images/programs/4442694/horizontal/4362d4d3-....jpg \
-        --date 2026-11-18   (optional; without it the card says "Latest")
 
 Writes cards/<slug>.png (868px wide = the email's 434px image slot at 2x). Needs: pip install playwright && playwright install chromium
 The " | Creator" suffix on Uscreen titles is stripped automatically.
@@ -23,13 +22,13 @@ def full_size(thumb):
     return thumb.replace("/small_", "/")
 
 
-def render(slug, creator, title, thumb, date, out_dir=None):
+def render(slug, creator, title, thumb, date=None, out_dir=None):
+    # date is accepted for compatibility but no longer shown on the card
     page_html = open(os.path.join(HERE, "template", "card.html"), encoding="utf-8").read()
     for key, val in {
         "CREATOR": html.escape(creator),
         "TITLE": html.escape(clean_title(title, creator)),
         "THUMB": html.escape(full_size(thumb)),
-        "DATE": datetime.date.fromisoformat(date[:10]).strftime("%b %-d") if date else "Latest",
     }.items():
         page_html = page_html.replace("{{" + key + "}}", val)
     out_dir = out_dir or os.path.join(HERE, "cards")
